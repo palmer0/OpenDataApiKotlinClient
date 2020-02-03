@@ -27,22 +27,22 @@ import com.beust.klaxon.string
  * @param defaultValue
  */
 data class Fields(
-        val name: kotlin.String?,
-        val type: kotlin.String?,
-        val alias: kotlin.String?,
-        val sqlType: kotlin.String?,
-        val length: kotlin.Int?,
-        val domain: kotlin.String?,
-        val defaultValue: kotlin.String?
+    val name: kotlin.String?,
+    val type: kotlin.String?,
+    val alias: kotlin.String?,
+    val sqlType: kotlin.String?,
+    val length: kotlin.Int?,
+    val domain: kotlin.String?,
+    val defaultValue: kotlin.String?
 ) {
-    constructor(jsonObject: JsonObject) : this(
-            jsonObject.string("name"),
-            jsonObject.string("type"),
-            jsonObject.string("alias"),
-            jsonObject.string("sqlType"),
-            jsonObject.int("length"),
-            jsonObject.string("domain"),
-            jsonObject.string("defaultValue")
-    )
+  constructor(jsonObject: JsonObject) : this(
+      jsonObject.string("name"),
+      jsonObject.string("type"),
+      jsonObject.string("alias"),
+      jsonObject.string("sqlType"),
+      jsonObject.int("length"),
+      jsonObject.string("domain"),
+      jsonObject.string("defaultValue")
+  )
 }
 

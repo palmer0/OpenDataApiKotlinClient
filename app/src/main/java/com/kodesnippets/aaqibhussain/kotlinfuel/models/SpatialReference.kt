@@ -21,12 +21,12 @@ import com.beust.klaxon.int
  * @param latestWkid
  */
 data class SpatialReference(
-        val wkid: Int?,
-        val latestWkid: Int?
+    val wkid: Int?,
+    val latestWkid: Int?
 ) {
-    constructor(jsonObject: JsonObject?) : this(
-            jsonObject?.int("wkid"),
-            jsonObject?.int("latestWkid")
-    )
+  constructor(jsonObject: JsonObject?) : this(
+      jsonObject?.int("wkid"),
+      jsonObject?.int("latestWkid")
+  )
 }
 

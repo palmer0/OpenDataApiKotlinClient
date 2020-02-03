@@ -20,45 +20,44 @@ import com.beust.klaxon.array
  * @param paths
  */
 data class GeometryPaths(
-        //val paths: kotlin.Array<GeometryPath>? = null
-        private val _paths: JsonArray<JsonArray<JsonArray<Double>>>?
-        //val paths: JsonArray<Any>?
-        //private val _paths: JsonArray<Any>?
+    //val paths: kotlin.Array<GeometryPath>? = null
+    private val _paths: JsonArray<JsonArray<JsonArray<Double>>>?
+    //val paths: JsonArray<Any>?
+    //private val _paths: JsonArray<Any>?
 
 ) {
 
 
-    constructor(jsonObject: JsonObject?) : this(
-            jsonObject?.array<JsonArray<JsonArray<Double>>>("paths")
-    )
+  constructor(jsonObject: JsonObject?) : this(
+      jsonObject?.array<JsonArray<JsonArray<Double>>>("paths")
+  )
 
-    var paths: Array<Array<Array<Double?>?>?>? = transformGeometryPaths(_paths)
+  var paths: Array<Array<Array<Double?>?>?>? = transformGeometryPaths(_paths)
 
 
+  private fun transformGeometryPaths(
+      _paths: JsonArray<JsonArray<JsonArray<Double>>>?
+  ): Array<Array<Array<Double?>?>?>? {
 
-    private fun transformGeometryPaths(
-            _paths: JsonArray<JsonArray<JsonArray<Double>>>?
-    ): Array<Array<Array<Double?>?>?>? {
-
-        if (_paths != null) {
-            val paths = arrayOfNulls<kotlin.Array<kotlin.Array<Double?>?>>(_paths.size)
-            for (i in _paths.indices) { // paths
-                val _path = _paths[i]
-                val path = arrayOfNulls<kotlin.Array<Double?>>(_path.size)
-                for (j in _path.indices) { // path
-                    val _points = _path[j]
-                    val points = arrayOfNulls<Double>(_points.size)
-                    for (k in _points.indices) { // points
-                        points[k] = _points[k]
-                    }
-                    path[j] = points
-                }
-                paths[i] = path
-            }
-            return paths
+    if (_paths != null) {
+      val paths = arrayOfNulls<kotlin.Array<kotlin.Array<Double?>?>>(_paths.size)
+      for (i in _paths.indices) { // paths
+        val _path = _paths[i]
+        val path = arrayOfNulls<kotlin.Array<Double?>>(_path.size)
+        for (j in _path.indices) { // path
+          val _points = _path[j]
+          val points = arrayOfNulls<Double>(_points.size)
+          for (k in _points.indices) { // points
+            points[k] = _points[k]
+          }
+          path[j] = points
         }
-        return null
+        paths[i] = path
+      }
+      return paths
     }
+    return null
+  }
 
 
 }

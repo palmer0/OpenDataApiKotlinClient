@@ -1,6 +1,6 @@
 /**
- * Canary Quake Catalog API
- * Catalog of Earthquakes in the Canary Islands in the last year
+ * La Palma Open Data
+ * Portal de datos abiertos de la Isla de La Palma
  *
  * OpenAPI spec version: 1.0.0
  *
@@ -13,7 +13,6 @@ package io.swagger.client.models
 
 import com.beust.klaxon.*
 
-
 /**
  *
  * @param objectIdFieldName
@@ -23,14 +22,15 @@ import com.beust.klaxon.*
  * @param fields
  * @param features
  */
-data class ParadasTaxi(
-    val objectIdFieldName: String?,
-    val globalIdFieldName: String?,
-    val geometryType: String?,
-    val spatialReference: SpatialReference?,
+data class ParadasGuagua(
+    val objectIdFieldName: String? = null,
+    val globalIdFieldName: String? = null,
+    val geometryType: String? = null,
+    val spatialReference: SpatialReference? = null,
+    //val fields: Array<Fields>? = null,
+    //val features: Array<FeatureParadaGuagua>? = null
     private val _fields: JsonArray<JsonObject>?,
     private val _features: JsonArray<JsonObject>?
-
 ) {
   constructor(jsonObject: JsonObject) : this(
       jsonObject.string("objectIdFieldName"),
@@ -71,3 +71,4 @@ data class ParadasTaxi(
   }
 
 }
+

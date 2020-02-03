@@ -20,19 +20,19 @@ import com.beust.klaxon.obj
  * @param geometry
  */
 data class FeatureLineaGuagua(
-        //val attributes: AttributesLineaGuagua
-        val attributes: AttributesLineaGuagua,
-        val geometry: GeometryPaths
+    //val attributes: AttributesLineaGuagua
+    val attributes: AttributesLineaGuagua,
+    val geometry: GeometryPaths
 ) {
 
-    /*
-    constructor(jsonObject: JsonObject) : this(
-            AttributesLineaGuagua(jsonObject.obj("attributes"))
-    )
-    */
+  /*
+  constructor(jsonObject: JsonObject) : this(
+          AttributesLineaGuagua(jsonObject.obj("attributes"))
+  )
+  */
 
-    constructor(jsonObject: JsonObject) : this(
-            AttributesLineaGuagua(jsonObject.obj("attributes")),
-            GeometryPaths(jsonObject.obj("geometry"))
-    )
+  constructor(jsonObject: JsonObject) : this(
+      AttributesLineaGuagua(jsonObject.obj("attributes")),
+      GeometryPaths(jsonObject.obj("geometry"))
+  )
 }

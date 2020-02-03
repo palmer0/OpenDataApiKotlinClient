@@ -12,9 +12,9 @@ import io.swagger.client.models.FeatureLineaGuagua
 /**
  * Created by aaqibhussain on 24/9/17.
  */
-class FeaturesLineaAdapter(
+class FeaturesAlojamientosAdapter(
     dataSet: Array<FeatureLineaGuagua?>
-) : RecyclerView.Adapter<FeaturesLineaAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<FeaturesAlojamientosAdapter.ViewHolder>() {
 
   val dataSet: Array<FeatureLineaGuagua?> = dataSet
   var onClick: (View) -> Unit = {}

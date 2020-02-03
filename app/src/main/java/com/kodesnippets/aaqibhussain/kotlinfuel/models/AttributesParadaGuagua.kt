@@ -1,6 +1,6 @@
 /**
- * Canary Quake Catalog API
- * Catalog of Earthquakes in the Canary Islands in the last year
+ * La Palma Open Data
+ * Portal de datos abiertos de la Isla de La Palma
  *
  * OpenAPI spec version: 1.0.0
  *
@@ -19,18 +19,24 @@ import com.beust.klaxon.string
 /**
  *
  * @param OBJECTID
- * @param Linea
- * @param Recorrido
+ * @param LATITUD
+ * @param LONGITUD
+ * @param PARADA
+ * @param LINEAS
  */
-data class AttributesLineaGuagua(
+data class AttributesParadaGuagua(
     val OBJECTID: Int? = null,
-    val Linea: Int? = null,
-    val Recorrido: String? = null
-) {
-
+    val LATITUD: String? = null,
+    val LONGITUD: String? = null,
+    val PARADA: String? = null,
+    val LINEAS: String? = null
+){
   constructor(jsonObject: JsonObject?) : this(
       jsonObject?.int("OBJECTID"),
-      jsonObject?.int("Linea"),
-      jsonObject?.string("Recorrido")
+      jsonObject?.string("LATITUD"),
+      jsonObject?.string("LONGITUD"),
+      jsonObject?.string("PARADA"),
+      jsonObject?.string("LINEAS")
   )
 }
+

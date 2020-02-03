@@ -23,47 +23,51 @@ import com.beust.klaxon.*
  * @param features
  */
 data class LineasGuagua(
-        val objectIdFieldName: kotlin.String? = null,
-        val globalIdFieldName: kotlin.String? = null,
-        val geometryType: kotlin.String? = null,
-        val spatialReference: SpatialReference? = null,
-        //val fields: kotlin.Array<Fields>? = null,
-        //val features: kotlin.Array<FeatureLineaGuagua>? = null
-        private val _fields: JsonArray<JsonObject>?,
-        private val _features: JsonArray<JsonObject>?
+    val objectIdFieldName: String? = null,
+    val globalIdFieldName: String? = null,
+    val geometryType: String? = null,
+    val spatialReference: SpatialReference? = null,
+    //val fields: kotlin.Array<Fields>? = null,
+    //val features: kotlin.Array<FeatureLineaGuagua>? = null
+    private val _fields: JsonArray<JsonObject>?,
+    private val _features: JsonArray<JsonObject>?
 ) {
 
-    constructor(jsonObject: JsonObject) : this(
-            jsonObject.string("objectIdFieldName"),
-            jsonObject.string("globalIdFieldName"),
-            jsonObject.string("geometryType"),
-            SpatialReference(jsonObject.obj("spatialReference")),
-            jsonObject.array<JsonObject>("fields"),
-            jsonObject.array<JsonObject>("features")
-    )
+  constructor(jsonObject: JsonObject) : this(
+      jsonObject.string("objectIdFieldName"),
+      jsonObject.string("globalIdFieldName"),
+      jsonObject.string("geometryType"),
+      SpatialReference(jsonObject.obj("spatialReference")),
+      jsonObject.array<JsonObject>("fields"),
+      jsonObject.array<JsonObject>("features")
+  )
 
-    var fields: kotlin.Array<Fields?>? = transformFields(_fields)
-    var features: kotlin.Array<FeatureLineaGuagua?>? = transformFeatures(_features)
+  var fields: Array<Fields?>? = transformFields(_fields)
+  var features: Array<FeatureLineaGuagua?>? = transformFeatures(_features)
 
-    private fun transformFields(_fields: JsonArray<JsonObject>?): kotlin.Array<Fields?>? {
-        if (_fields != null) {
-            val fields = arrayOfNulls<Fields>(_fields.size)
-            for (index in _fields.indices) {
-                fields[index] = Fields(_fields[index])
-            }
-            return fields
-        }
-        return null
+  private fun transformFields(
+      _fields: JsonArray<JsonObject>?
+  ): Array<Fields?>? {
+    if (_fields != null) {
+      val fields = arrayOfNulls<Fields>(_fields.size)
+      for (index in _fields.indices) {
+        fields[index] = Fields(_fields[index])
+      }
+      return fields
     }
+    return null
+  }
 
-    private fun transformFeatures(_features: JsonArray<JsonObject>?): kotlin.Array<FeatureLineaGuagua?>? {
-        if (_features != null) {
-            val features = arrayOfNulls<FeatureLineaGuagua>(_features.size)
-            for (index in _features.indices) {
-                features[index] = FeatureLineaGuagua(_features[index])
-            }
-            return features
-        }
-        return null
+  private fun transformFeatures(
+      _features: JsonArray<JsonObject>?
+  ): Array<FeatureLineaGuagua?>? {
+    if (_features != null) {
+      val features = arrayOfNulls<FeatureLineaGuagua>(_features.size)
+      for (index in _features.indices) {
+        features[index] = FeatureLineaGuagua(_features[index])
+      }
+      return features
     }
+    return null
+  }
 }

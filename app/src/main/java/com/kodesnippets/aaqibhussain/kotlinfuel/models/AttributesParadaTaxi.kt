@@ -25,19 +25,19 @@ import com.beust.klaxon.string
  * @param Foto
  */
 data class AttributesParadaTaxi(
-        val OBJECTID: kotlin.Int?,
-        val Nombre: kotlin.String?,
-        val Municipio: kotlin.String?,
-        val Telefono: kotlin.Int?,
-        val Direccion: kotlin.String?,
-        val Foto: kotlin.String?
+    val OBJECTID: Int?,
+    val Nombre: String?,
+    val Municipio: String?,
+    val Telefono: Int?,
+    val Direccion: String?,
+    val Foto: String?
 ) {
-    constructor(jsonObject: JsonObject?) : this(
-            jsonObject?.int("OBJECTID"),
-            jsonObject?.string("Nombre"),
-            jsonObject?.string("Municipio"),
-            jsonObject?.int("Telefono"),
-            jsonObject?.string("Direccion"),
-            jsonObject?.string("Foto")
-    )
+  constructor(jsonObject: JsonObject?) : this(
+      jsonObject?.int("OBJECTID"),
+      jsonObject?.string("Nombre"),
+      jsonObject?.string("Municipio"),
+      jsonObject?.int("Telefono"),
+      jsonObject?.string("Direccion"),
+      jsonObject?.string("Foto")
+  )
 }
