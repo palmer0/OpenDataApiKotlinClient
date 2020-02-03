@@ -16,33 +16,34 @@ class FeaturesParadaAdapter(
 ) : RecyclerView.Adapter<FeaturesParadaAdapter.ViewHolder>(){
 
     val dataSet : Array<FeatureParadaTaxi?> = dataSet
-    final var onClick : (View)-> Unit = {}
+    var onClick : (View)-> Unit = {}
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
-        val titleTextView = view.findViewById<TextView>(R.id.title_text_view) as TextView
-        val bodyTextView = view.findViewById<TextView>(R.id.body_text_view) as TextView
+        val titleTextView = view.findViewById(R.id.title_text_view) as TextView
+        val bodyTextView = view.findViewById(R.id.body_text_view) as TextView
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-        val view = LayoutInflater.from(parent!!.context)
+        val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.recycler_view_row, parent,false)
 
-        view.setOnClickListener(View.OnClickListener { view ->
+        view.setOnClickListener { view ->
             this.onClick(view)
-        })
+        }
+
         return ViewHolder(view)
 
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        holder?.let { holder ->
+        holder.let { vh ->
             this.dataSet[position]?.let { data ->
                 val attributes = data.attributes
-                holder.titleTextView.text = attributes.Nombre
-                holder.bodyTextView.text = attributes.Direccion
+                vh.titleTextView.text = attributes.Nombre
+                vh.bodyTextView.text = attributes.Direccion
             }
         }
 

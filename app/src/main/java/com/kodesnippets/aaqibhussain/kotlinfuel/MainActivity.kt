@@ -15,11 +15,11 @@ class MainActivity : AppCompatActivity() {
 
 
     lateinit var recyclerView : RecyclerView
-    lateinit var recycletViewAdapter : RecyclerView.Adapter<FeaturesLineaAdapter.ViewHolder>
-    //lateinit var recycletViewAdapter : RecyclerView.Adapter<FeaturesParadaAdapter.ViewHolder>
-    lateinit var recyclerViewLayoutManager : RecyclerView.LayoutManager
+    lateinit var recyclerAdapter : RecyclerView.Adapter<FeaturesLineaAdapter.ViewHolder>
+    //lateinit var recyclerAdapter : RecyclerView.Adapter<FeaturesParadaAdapter.ViewHolder>
+    lateinit var recyclerLayoutManager : RecyclerView.LayoutManager
     //var adapter: FeaturesParadaAdapter? = null
-    var adapter: FeaturesLineaAdapter? = null
+    var dataAdapter: FeaturesLineaAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity() {
     fun setupViews(){
 
         recyclerView = findViewById(R.id.recycler_view)
-        recyclerViewLayoutManager = LinearLayoutManager(applicationContext)
-        recyclerView.layoutManager = recyclerViewLayoutManager
+        recyclerLayoutManager = LinearLayoutManager(applicationContext)
+        recyclerView.layoutManager = recyclerLayoutManager
 
     }
 
@@ -104,11 +104,11 @@ class MainActivity : AppCompatActivity() {
 
             response.features?.let { features ->
 
-                this.adapter = FeaturesLineaAdapter( features)
-                recycletViewAdapter = adapter!!
-                recyclerView.adapter = recycletViewAdapter
-                recycletViewAdapter.notifyDataSetChanged()
-                adapter?.onClick = { view ->
+                this.dataAdapter = FeaturesLineaAdapter( features)
+                recyclerAdapter = dataAdapter!!
+                recyclerView.adapter = recyclerAdapter
+                recyclerAdapter.notifyDataSetChanged()
+                dataAdapter?.onClick = { view ->
 
                 }
 
