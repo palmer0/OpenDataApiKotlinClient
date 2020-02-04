@@ -42,7 +42,7 @@ class FeaturesLineaAdapter(
 
     holder.let { vh ->
       this.dataSet[position].let { data ->
-        data.geometry.paths?.let { paths ->
+        data.geometry?.paths?.let { paths ->
           for (path in paths) {
             if (path != null) {
               for (points in path) {
@@ -56,9 +56,14 @@ class FeaturesLineaAdapter(
           }
         }
 
-        val attributes = data.attributes
-        vh.titleTextView.text = attributes.Linea.toString()
-        vh.bodyTextView.text = attributes.Recorrido
+        data.attributes?.let {attributes ->
+          vh.titleTextView.text = attributes.Linea.toString()
+          vh.bodyTextView.text = attributes.Recorrido
+        }
+
+//        val attributes = data.attributes
+//        vh.titleTextView.text = attributes.Linea.toString()
+//        vh.bodyTextView.text = attributes.Recorrido
       }
     }
 

@@ -41,9 +41,14 @@ class FeaturesParadaAdapter(
 
     holder.let { vh ->
       this.dataSet[position]?.let { data ->
-        val attributes = data.attributes
-        vh.titleTextView.text = attributes.Nombre
-        vh.bodyTextView.text = attributes.Direccion
+//        val attributes = data.attributes
+//        vh.titleTextView.text = attributes.Nombre
+//        vh.bodyTextView.text = attributes.Direccion
+
+        data.attributes?.let {attributes ->
+          vh.titleTextView.text = attributes.Nombre
+          vh.bodyTextView.text = attributes.Direccion
+        }
       }
     }
 
