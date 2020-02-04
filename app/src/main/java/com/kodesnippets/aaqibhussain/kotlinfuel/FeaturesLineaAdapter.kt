@@ -13,10 +13,10 @@ import io.swagger.client.models.FeatureLineaGuagua
  * Created by aaqibhussain on 24/9/17.
  */
 class FeaturesLineaAdapter(
-    dataSet: Array<FeatureLineaGuagua?>
+    dataSet: Array<FeatureLineaGuagua>
 ) : RecyclerView.Adapter<FeaturesLineaAdapter.ViewHolder>() {
 
-  val dataSet: Array<FeatureLineaGuagua?> = dataSet
+  val dataSet: Array<FeatureLineaGuagua> = dataSet
   var onClick: (View) -> Unit = {}
 
   class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -41,7 +41,7 @@ class FeaturesLineaAdapter(
   override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
     holder.let { vh ->
-      this.dataSet[position]?.let { data ->
+      this.dataSet[position].let { data ->
         data.geometry.paths?.let { paths ->
           for (path in paths) {
             if (path != null) {

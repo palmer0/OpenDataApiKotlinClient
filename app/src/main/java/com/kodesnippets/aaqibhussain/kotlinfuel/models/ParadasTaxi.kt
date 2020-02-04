@@ -11,8 +11,6 @@
  */
 package io.swagger.client.models
 
-import com.beust.klaxon.*
-
 
 /**
  *
@@ -28,10 +26,14 @@ data class ParadasTaxi(
     val globalIdFieldName: String?,
     val geometryType: String?,
     val spatialReference: SpatialReference?,
-    private val _fields: JsonArray<JsonObject>?,
-    private val _features: JsonArray<JsonObject>?
+    //private val _fields: JsonArray<JsonObject>?,
+    //private val _features: JsonArray<JsonObject>?
+    val fields: Array<Fields?>? = null,
+    val features: Array<FeatureParadaTaxi?>? = null
 
 ) {
+
+  /*
   constructor(jsonObject: JsonObject) : this(
       jsonObject.string("objectIdFieldName"),
       jsonObject.string("globalIdFieldName"),
@@ -69,5 +71,5 @@ data class ParadasTaxi(
     }
     return null
   }
-
+  */
 }

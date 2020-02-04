@@ -11,16 +11,12 @@
  */
 package io.swagger.client.models
 
-import com.beust.klaxon.JsonObject
-import com.beust.klaxon.obj
-
 /**
  *
  * @param attributes
  * @param geometry
  */
 data class FeatureLineaGuagua(
-    //val attributes: AttributesLineaGuagua
     val attributes: AttributesLineaGuagua,
     val geometry: GeometryPaths
 ) {
@@ -31,8 +27,8 @@ data class FeatureLineaGuagua(
   )
   */
 
-  constructor(jsonObject: JsonObject) : this(
-      AttributesLineaGuagua(jsonObject.obj("attributes")),
-      GeometryPaths(jsonObject.obj("geometry"))
-  )
+//  constructor(jsonObject: JsonObject) : this(
+//      AttributesLineaGuagua(jsonObject.obj("attributes")),
+//      GeometryPaths(jsonObject.obj("geometry"))
+//  )
 }

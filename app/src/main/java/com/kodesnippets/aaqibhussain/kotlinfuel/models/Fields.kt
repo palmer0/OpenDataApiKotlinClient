@@ -11,10 +11,6 @@
  */
 package io.swagger.client.models
 
-import com.beust.klaxon.JsonObject
-import com.beust.klaxon.int
-import com.beust.klaxon.string
-
 
 /**
  *
@@ -27,14 +23,15 @@ import com.beust.klaxon.string
  * @param defaultValue
  */
 data class Fields(
-    val name: kotlin.String?,
-    val type: kotlin.String?,
-    val alias: kotlin.String?,
-    val sqlType: kotlin.String?,
-    val length: kotlin.Int?,
-    val domain: kotlin.String?,
-    val defaultValue: kotlin.String?
+    val name: String?,
+    val type: String?,
+    val alias: String?,
+    val sqlType: String?,
+    val length: Int?,
+    val domain: String?,
+    val defaultValue: String?
 ) {
+  /*
   constructor(jsonObject: JsonObject) : this(
       jsonObject.string("name"),
       jsonObject.string("type"),
@@ -44,5 +41,6 @@ data class Fields(
       jsonObject.string("domain"),
       jsonObject.string("defaultValue")
   )
+  */
 }
 

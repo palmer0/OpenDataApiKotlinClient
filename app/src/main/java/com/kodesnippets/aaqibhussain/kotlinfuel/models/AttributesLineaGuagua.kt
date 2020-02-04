@@ -11,10 +11,6 @@
  */
 package io.swagger.client.models
 
-import com.beust.klaxon.JsonObject
-import com.beust.klaxon.int
-import com.beust.klaxon.string
-
 
 /**
  *
@@ -28,9 +24,9 @@ data class AttributesLineaGuagua(
     val Recorrido: String? = null
 ) {
 
-  constructor(jsonObject: JsonObject?) : this(
-      jsonObject?.int("OBJECTID"),
-      jsonObject?.int("Linea"),
-      jsonObject?.string("Recorrido")
-  )
+//  constructor(jsonObject: JsonObject?) : this(
+//      jsonObject?.int("OBJECTID"),
+//      jsonObject?.int("Linea"),
+//      jsonObject?.string("Recorrido")
+//  )
 }

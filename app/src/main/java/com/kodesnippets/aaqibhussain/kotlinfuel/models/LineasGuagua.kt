@@ -11,8 +11,6 @@
  */
 package io.swagger.client.models
 
-import com.beust.klaxon.*
-
 /**
  *
  * @param objectIdFieldName
@@ -27,12 +25,13 @@ data class LineasGuagua(
     val globalIdFieldName: String? = null,
     val geometryType: String? = null,
     val spatialReference: SpatialReference? = null,
-    //val fields: kotlin.Array<Fields>? = null,
-    //val features: kotlin.Array<FeatureLineaGuagua>? = null
-    private val _fields: JsonArray<JsonObject>?,
-    private val _features: JsonArray<JsonObject>?
+    val fields: Array<Fields>? = null,
+    val features: Array<FeatureLineaGuagua>? = null
+    //private val _fields: JsonArray<JsonObject>?,
+    //private val _features: JsonArray<JsonObject>?
 ) {
 
+  /*
   constructor(jsonObject: JsonObject) : this(
       jsonObject.string("objectIdFieldName"),
       jsonObject.string("globalIdFieldName"),
@@ -44,7 +43,13 @@ data class LineasGuagua(
 
   var fields: Array<Fields?>? = transformFields(_fields)
   var features: Array<FeatureLineaGuagua?>? = transformFeatures(_features)
+  */
 
+//  class Deserializer : ResponseDeserializable<LineasGuagua> {
+//    override fun deserialize(content: String) = Gson().fromJson(content, LineasGuagua::class.java)
+//  }
+
+  /*
   private fun transformFields(
       _fields: JsonArray<JsonObject>?
   ): Array<Fields?>? {
@@ -70,4 +75,5 @@ data class LineasGuagua(
     }
     return null
   }
+  */
 }

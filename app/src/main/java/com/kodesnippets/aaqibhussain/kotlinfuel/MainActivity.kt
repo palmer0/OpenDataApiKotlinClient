@@ -5,10 +5,9 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.beust.klaxon.JsonObject
-import com.beust.klaxon.Parser
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.core.FuelError
+import com.google.gson.Gson
 import io.swagger.client.models.LineasGuagua
 
 class MainActivity : AppCompatActivity() {
@@ -41,9 +40,35 @@ class MainActivity : AppCompatActivity() {
 
   }
 
+
+
+//  private fun getRequest(
+//      url: String, success: (LineasGuagua) -> Unit, failure: (FuelError) -> Unit
+//  ) {
+//
+//
+//    Fuel.get(url).responseObject(LineasGuagua.Deserializer())  { request, response, result ->
+//
+//      val (data, error) = result
+//
+//      if (error != null) {
+//        Log.v("Error", error.toString())
+//        failure(error)
+//      } else {
+//        val onSuccess = data ?: return@responseObject
+//        success(onSuccess)
+//
+//      }
+//
+//    }
+//
+//  }
+
+
   private fun getRequest(
       url: String, success: (String) -> Unit, failure: (FuelError) -> Unit
   ) {
+
 
     Fuel.get(url).responseString { request, response, result ->
 
@@ -59,6 +84,7 @@ class MainActivity : AppCompatActivity() {
       }
 
     }
+
   }
 
 
@@ -70,6 +96,7 @@ class MainActivity : AppCompatActivity() {
 
     getRequest(url, success = { response ->
 
+      /*
       val parser = Parser()
       val stringBuilder = StringBuilder(response)
 
@@ -77,9 +104,11 @@ class MainActivity : AppCompatActivity() {
       val response = LineasGuagua(jsonObject)
       //val response = ParadasGuagua(jsonObject)
       //val response = AlojamientosTuristicos(jsonObject)
+      */
 
+      var lineasGuagua = Gson().fromJson(response, LineasGuagua::class.java)
 
-      response.features?.let { features ->
+      lineasGuagua.features?.let { features ->
 
         this.dataAdapter = FeaturesLineaAdapter(features)
         //this.dataAdapter = FeaturesParadaAdapter(features)
@@ -98,4 +127,5 @@ class MainActivity : AppCompatActivity() {
 
 
   }
+
 }

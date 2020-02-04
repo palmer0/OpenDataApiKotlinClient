@@ -11,23 +11,20 @@
  */
 package io.swagger.client.models
 
-import com.beust.klaxon.JsonArray
-import com.beust.klaxon.JsonObject
-import com.beust.klaxon.array
-
 /**
  *
  * @param paths
  */
 data class GeometryPaths(
     //val paths: kotlin.Array<GeometryPath>? = null
-    private val _paths: JsonArray<JsonArray<JsonArray<Double>>>?
+    val paths: Array<Array<Array<Double>>>? = null
+    //private val _paths: JsonArray<JsonArray<JsonArray<Double>>>?
     //val paths: JsonArray<Any>?
     //private val _paths: JsonArray<Any>?
 
 ) {
 
-
+  /*
   constructor(jsonObject: JsonObject?) : this(
       jsonObject?.array<JsonArray<JsonArray<Double>>>("paths")
   )
@@ -58,6 +55,6 @@ data class GeometryPaths(
     }
     return null
   }
-
+  */
 
 }
